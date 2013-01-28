@@ -27,6 +27,7 @@ a {
 }
 
 .menu {
+    z-index: 999;
     background-color: white;
     font-size: 14px;
     border-bottom: 1px solid #eee;
