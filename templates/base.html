@@ -15,10 +15,12 @@ $def with (content)
   <body>
     <div class="menu">
       <ul style="float: left;">
-	<li><a href="#"><b>webpages</b></a></li>
+	$for link in enumerate(['webpages', 'audio']):	
+	  $if loop.index - 1 == int(content.get('page', 0)):
+	    <li><a href="/?p=$link[0]"><b>$link[1]</b></a></li>
+	  $else:
+	    <li><a href="/?p=$link[0]">$link[1]</a></li>
 	<li><a href="http://openlibrary.org">books</a></li>
-	<li><a href="#">audio</a></li>
-	<li><a href="#">tv</a></li>
 	<li><a href="http://hackerlist.net:1337">research</a></li>
       </ul>
       <span style="float: right; padding-right: 25px; margin-top: 12px; margin-left: 25px;">

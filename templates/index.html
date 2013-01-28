@@ -1,9 +1,11 @@
-$def with()
+$def with(page=0)
+
+$var page: $page
 
     <header>
       <div class="logo-container">
 	<div class="logo">
-	  <a class="logotxt" href="/">
+	  <a class="logotxt" href="http://archive.org">
 	    <h1 style="float: left; margin-left: 130px;">Archive</h1>
 	    <h1 style="letter-spacing: 6px; float: left;"
 		class="vertical">Internet</h1>
@@ -19,11 +21,16 @@ $def with()
     </header>
 
     <div id="content">
-      <form method="post" action="http://archive.org/searchresults.php"
-	    id="searchform" method="post">
+      <form method="post" id="searchform" method="post"
+	    action="http://archive.org/searchresults.php?output=json">
 	<div class="searchbar">
 	  <input class="searchinput" type="text" name="search"
 		 placeholder="Search archive.org" />
+	  <input type="hidden" name="mediatype"
+	    $for mediatype in enumerate(['all', 'audio']):
+              $if loop.index - 1 == int(page):
+  	        value="$mediatype[1]"/>
+	  </select>
 	</div>
 	<div class="searchactions">
 	  <input class="searchbtn" type="submit" class="btn" value="Search"/>

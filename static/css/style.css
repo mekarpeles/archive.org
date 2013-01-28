@@ -71,6 +71,10 @@ a {
     color: #666;
 }
 
+.logotxt:visited {
+    color: purple;
+}
+
 .logotxt:hover {
     transition: width 5s;
     -moz-transition: width 5s; /* Firefox 4 */
