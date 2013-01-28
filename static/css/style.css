@@ -1,8 +1,9 @@
 body {
+    //font-family: 'PT Serif', serif;
     font-family: 'Sorts Mill Goudy', serif;
     margin: 0px;
     padding: 0px;
-    background-color: ivory;
+    background-color: #fffffa;
 }
 
 header {
@@ -99,6 +100,8 @@ a {
 }
 
 .searchinput {
+    font-family: Quicksand;
+    font-size: 15px;
     width: 100%;
     padding: 10px;
     border-top: 1px solid #bbb;
@@ -135,7 +138,7 @@ a {
     border:1px solid #ddd;
     display:inline-block;
     color:#777777;
-    font-family:arial;
+    font-family: Quicksand;
     font-size:15px;
     font-weight:bold;
     padding:9px 38px;
