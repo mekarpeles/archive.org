@@ -1,0 +1,75 @@
+body {
+    font-family: 'Sorts Mill Goudy', serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    padding: 10px;
+}
+
+h1 {
+    font-weight: normal;
+    font-family: 'PT Serif', serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu {
+    background-color: #f3f3f3;
+    font-size: 17px;
+    border-bottom: 1px solid #eee;
+    //font-family: 'Open Sans', sans-serif;
+    font-family: arial;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.menu ul {
+    margin: 0px;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.menu ul li {
+    margin-right: 10px;
+    display: inline;
+}
+
+.menu ul li a {
+    font-weight: 200;
+}
+
+.vertical {
+    -webkit-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -o-transform: rotate(270deg);
+}
+
+.searchbar {
+    margin: 0 auto;
+    width: 550px;
+}
+
+.searchinput {
+    width: 100%;
+    padding: 8px;
+    border-top: 1px solid #bbb;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #dfdfdf;
+    border-right: 1px solid #ccc;
+}
+
+.searchinput:hover {
+    border-top: 1px solid #999;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #bbb;
+}
+
+#content {
+
+    width: 900px;
+    margin: 0 auto;
+}
