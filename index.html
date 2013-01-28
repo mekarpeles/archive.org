@@ -8,34 +8,41 @@
     <title>archive.org | The Internet Archive: Universal Access to All Knowledge</title>
     <link rel="stylesheet" href="static/css/bootstrap.min.css" />
     <link rel="stylesheet" href="static/css/style.css" />
-    <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|PT+Serif|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|PT+Serif|Quicksand|Open+Sans:400,300' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="menu">
       <ul>
-	<li><a href="#">websites</a></li>
+	<li><a href="#"><b>webpages</b></a></li>
 	<li><a href="http://openlibrary.org">books</a></li>
 	<li><a href="#">audio</a></li>
 	<li><a href="#">tv</a></li>
 	<li><a href="http://hackerlist.net:1337">research</a></li>
 	<li><a></a></li>
-	<li><a></a></li>
+	<li>
+	  <span style="float: right; padding-right: 25px; margin-top: 0px; margin-left: 25px;">
+	    <img height="20" src="https://secure.gravatar.com/avatar/7ca82283af0b65b163dde4f5f5e3fb41?s=160&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" class="rounded" width="20">
+	    <a style="position: relative; top: -5px; color: #333;" href="#">mek (20)</a>
+	  </span>
+	</li>
       </ul>
     </div>
 
-    <div class="">
-      <span style="float: right; padding-right: 25px; margin-top: 10px; margin-left: 25px;">
-	<img height="20" src="https://secure.gravatar.com/avatar/7ca82283af0b65b163dde4f5f5e3fb41?s=160&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" class="rounded" width="20">
-	<a style="color: #333;" href="#">mek (20)</a>
-      </span>
-      <div style="clear: both;"></div>
-    </div>
-
     <header>
-      <div class="logo">
-	<a href="/">
-	  <h1>Archive</h1>
-	</a>
+      <div class="logo-container">
+	<div class="logo">
+	  <a class="logotxt" href="/">
+	    <h1 style="float: left; margin-left: 130px;">Archive</h1>
+	    <h1 style="letter-spacing: 6px; float: left;"
+		class="vertical">Internet</h1>
+	    <img src="static/imgs/logo.png"
+		 style="position: absolute; width: 150px; left: 125px; top: 60px;"/>
+	  </a>
+	</div>
+	<div class="clearfix"></div>
+	<p class="centertext motto">
+	  Universal Access to All Knowledge
+	</p>
       </div>
     </header>
 
@@ -46,8 +53,10 @@
 	  <input class="searchinput" type="text" name="search"
 		 placeholder="Search" />
 	</div>
-	<input id="searchsubmit" type="submit" class="btn"/>
-	<a style="color: #666;" href="#"><i>advanced search</i></a>
+	<div class="searchactions">
+	  <input class="searchbtn" type="submit" class="btn"/>
+
+	</div>
       </form>
     </div>
 
