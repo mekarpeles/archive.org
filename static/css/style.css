@@ -28,11 +28,11 @@ a {
 }
 
 .menu {
+    top: 0px;
     z-index: 999;
     background-color: white;
     font-size: 14px;
     border-bottom: 1px solid #eee;
-    //font-family: "Lucida Grande", Verdana, Geneva, Helvetica, Arial, sans-serif;
     font-family: 'Quicksand', sans-serif;
     //font-family: arial;
     text-shadow: 1px 1px 1px #fff;
@@ -98,6 +98,12 @@ a {
     -o-transform: rotate(270deg);
 }
 
+#serpsearch {
+    margin-top: 49px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
 .searchbar {
     margin: 0px auto 10px auto;
     width: 550px;
@@ -121,10 +127,33 @@ a {
     border-right: 1px solid #bbb;
 }
 
-
 #content {
     width: 900px;
-    margin: 10px auto 0px auto;
+    margin: 20px auto 0px auto;
+}
+
+#serp {
+    float: left;
+    width: 800px;
+    margin: 0px 0px 0px 150px;
+}
+
+#rightbar {
+    float: left;
+    width: 100px;
+    margin-top: 49px;
+    margin-left: 10px;
+}
+
+.serpstats {
+    color: #999;
+}
+
+.zeroclick {
+    border: 1px solid #e9e9e9;
+    background-color: ivory;
+    margin-top: 10px;
+    padding: 15px;
 }
 
 .searchactions {
@@ -156,4 +185,48 @@ a {
 }.searchbtn:active {
     position:relative;
     top:1px;
+}
+
+#serp {
+    margin-top: 10px;
+}
+
+#serp ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+#serp ul li {
+    padding: 20px;
+    padding-left: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#serp ul li a {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+}
+
+footer ul {
+    margin-top: 50px;
+    list-style-type: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+footer ul li a {
+    font-size: 14px;
+    color: #999;
+    //text-decoration: underline;
+}
+
+footer ul li a:hover {
+    color: #666;
 }
