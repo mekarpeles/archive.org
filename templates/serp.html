@@ -1,0 +1,53 @@
+$def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
+
+<div id="serpsearch">
+  <form style="margin-left: 103px; margin-bottom: 14px;" action="/"
+	method="POST">
+    <img style="position: relative; top: 9px; margin: 10px 15px 0px 5px;" src="http://web.archive.org/static/images/logo_archive-sm.png"/>
+    <input class="searchinput" style="width: 635px; margin-right: 8px;" type="text" name="q" value="$query"/>
+    <input type="hidden" name="rows" value="$rows"/>
+    <input type="hidden" name="page" value="$page"/>
+    <input type="hidden" name="output" value="json"/>
+    <input type="hidden" name="mediatype_query"
+      $for mediatype in enumerate(['all', 'audio']):
+        $if loop.index - 1 == int(p):
+  	   value="$mediatype[1]"/>
+    <input class="searchbtn" type="submit" class="btn" value="Search"/>
+  </form>
+</div>
+
+<div id="serp">
+  <div class="serpstats">
+    $if serp and 'response' in serp:
+      <p>
+        $serp['response']['numFound'] results in 
+        $commify(serp['responseHeader']['QTime'] / 1000.0) seconds
+      </p>
+  </div>
+
+  $if zeroclick:
+    <div class="zeroclick">
+      <p>$:zeroclick</p>
+    </div>
+  $if serp and 'response' in serp and 'docs' in serp['response']:
+    <ul>      
+      $for doc in serp['response']['docs']:
+        <li>
+  	  <div>
+  	    <a href="http://archive.org/details/$doc['identifier']">
+  	      $doc['title']
+  	    </a>
+  	  </div>
+	  $if 'description' in doc:
+    	    <div>
+  	      $:doc['description']
+  	    </div>
+  	</li>
+    </ul>
+  $else:
+    $:serp
+</div>
+<div id="rightbar">
+  $#<p>or another</p>
+</div>
+<div class="clearfix"></div>
