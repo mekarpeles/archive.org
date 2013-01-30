@@ -1,6 +1,6 @@
-$def with(page=0)
+$def with(p=0)
 
-$var page: $page
+$var page: $p
 
     <header>
       <div class="logo-container">
@@ -21,20 +21,22 @@ $var page: $page
     </header>
 
     <div id="content">
-      <form method="post" id="searchform" method="post"
-	    action="http://archive.org/searchresults.php?output=json">
+      <form method="POST" name="rawform" id="rawform"
+	    action="/"/>
+	    $#action="http://archive.org/searchresults.php?output=json">
 	<div class="searchbar">
-	  <input class="searchinput" type="text" name="search"
+	  <input class="searchinput" type="text" name="q"
 		 placeholder="Search archive.org" />
-	  <input type="hidden" name="mediatype"
+	  <input type="hidden" name="rows" value="50"/>
+	  <input type="hidden" name="page" value="1"/>
+	  <input type="hidden" name="output" value="json"/>
+	  <input type="hidden" name="mediatype_query"
 	    $for mediatype in enumerate(['all', 'audio']):
-              $if loop.index - 1 == int(page):
+              $if loop.index - 1 == int(p):
   	        value="$mediatype[1]"/>
-	  </select>
 	</div>
 	<div class="searchactions">
 	  <input class="searchbtn" type="submit" class="btn" value="Search"/>
-
 	</div>
       </form>
     </div>

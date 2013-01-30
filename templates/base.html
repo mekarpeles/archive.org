@@ -15,7 +15,7 @@ $def with (content)
   <body>
     <div class="menu">
       <ul style="float: left;">
-	$for link in enumerate(['webpages', 'audio']):	
+	$for link in enumerate(['web', 'audio']):	
 	  $if loop.index - 1 == int(content.get('page', 0)):
 	    <li><a href="/?p=$link[0]"><b>$link[1]</b></a></li>
 	  $else:
@@ -24,12 +24,23 @@ $def with (content)
 	<li><a href="http://hackerlist.net:1337">research</a></li>
       </ul>
       <span style="float: right; padding-right: 25px; margin-top: 12px; margin-left: 25px;">
+	<a style="position: relative; top: -4px; margin-right: 15px;" href="http://archive.org/create">Upload</a>
+	<a style="position: relative; top: -4px; margin-right: 15px;" href="http://archive.org/forums.php">Forums</a>
+	<a style="position: relative; top: -4px; margin-right: 20px;" href="http://archive.org/services/collection-rss.php">RSS</a>
 	<img height="20" src="https://secure.gravatar.com/avatar/7ca82283af0b65b163dde4f5f5e3fb41?s=160&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" class="rounded" width="20">
 	<a style="position: relative; top: -5px; color: #333;" href="#">mek (20)</a>
       </span>
       <div class="clearfix"></div>
     </div>
     $:content
+    <footer>
+      <ul>
+	<li><a href="http://archive.org/about/terms.php">Terms &amp; Privacy</a></li>
+	<li><a href="http://archive.org/about/faqs.php">FAQs</a></li>
+	<li><a href="http://archive.org/about/jobs.php">Jobs</a></li>
+	<li><a href="http://archive.org/about/credits.php">Supporters</a></li>
+      </ul>
+    </footer>
   </body>
 </html>
 
