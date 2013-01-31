@@ -27,6 +27,21 @@ a {
     clear: both;
 }
 
+.menuright {
+    float: right;
+    padding-right: 25px;
+    margin-top: 12px;
+    margin-left: 25px;
+}
+
+.menuright a {
+    color: black
+}
+
+.menuright a:hover {
+    color: blue;
+}
+
 .menu {
     top: 0px;
     z-index: 999;
@@ -134,8 +149,26 @@ a {
 
 #serp {
     float: left;
-    width: 800px;
+    width: 700px;
     margin: 0px 0px 0px 150px;
+}
+
+#serp .cat  {
+    color: #666;
+}
+
+#serp .cat a {
+    color: #666;
+}
+
+#serp .title p {
+    padding: 0px;
+    margin: 0px;
+}
+
+#serp .desc p {
+    padding: 0px;
+    margin: 0px;
 }
 
 #rightbar {
@@ -145,13 +178,15 @@ a {
     margin-left: 10px;
 }
 
-.serpstats {
-    color: #999;
+.serpstats p {
+    font-family: Quicksand;
+    color: #888;
+    margin-left: 15px;
 }
 
 .zeroclick {
     border: 1px solid #e9e9e9;
-    background-color: ivory;
+    background-color: #fff;
     margin-top: 10px;
     padding: 15px;
 }

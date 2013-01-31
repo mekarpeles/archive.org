@@ -3,7 +3,7 @@ $def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
 <div id="serpsearch">
   <form style="margin-left: 103px; margin-bottom: 14px;" action="/"
 	method="POST">
-    <img style="position: relative; top: 9px; margin: 10px 15px 0px 5px;" src="http://web.archive.org/static/images/logo_archive-sm.png"/>
+    <a href="http://archive.org"><img style="position: relative; top: 9px; margin: 10px 15px 0px 5px;" src="http://web.archive.org/static/images/logo_archive-sm.png"/></a>
     <input class="searchinput" style="width: 635px; margin-right: 8px;" type="text" name="q" value="$query"/>
     <input type="hidden" name="rows" value="$rows"/>
     <input type="hidden" name="page" value="$page"/>
@@ -30,18 +30,30 @@ $def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
       <p>$:zeroclick</p>
     </div>
   $if serp and 'response' in serp and 'docs' in serp['response']:
-    <ul>      
-      $for doc in serp['response']['docs']:
+    <ul>
+      $for doc in serp['response']['docs']        
         <li>
-  	  <div>
-  	    <a href="http://archive.org/details/$doc['identifier']">
-  	      $doc['title']
+  	  <div class="title">
+  	    <a href="http://archive.org/$('download' if doc['mediatype'] == 'audio' else 'details')/$doc['identifier']">
+  	      $:trunc(markdown(doc['title']), 100)
   	    </a>
   	  </div>
+	  $if 'identifier' in doc:
+	    <div style="color: green;">
+	      http://archive.org/details/$doc['identifier']
+	    </div>
 	  $if 'description' in doc:
-    	    <div>
-  	      $:doc['description']
+    	    <div class="desc">
+  	      $:trunc(markdown(doc['description']), 100)
   	    </div>
+	  $if 'collection' in doc and 'format' in doc:
+	    <div class="cat">
+	      categories: $:join(['<a href="http://archive.org/details/%s">%s</a>' % (c, c) for c in doc['collection']], ', '), formats: $join(doc['format'], ', ')
+	    </div>
+	    
+	  $# load via ajax: http://archive.org/details/%s&output=json
+	  $# if 'mediatype' == 'audio':
+	  $#   'runtime', 
   	</li>
     </ul>
   $else:

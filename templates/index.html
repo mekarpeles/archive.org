@@ -1,4 +1,4 @@
-$def with(p=0)
+$def with(p=0, rows=50, page=1)
 
 $var page: $p
 
@@ -27,8 +27,8 @@ $var page: $p
 	<div class="searchbar">
 	  <input class="searchinput" type="text" name="q"
 		 placeholder="Search archive.org" />
-	  <input type="hidden" name="rows" value="50"/>
-	  <input type="hidden" name="page" value="1"/>
+	  <input type="hidden" name="rows" value="$rows"/>
+	  <input type="hidden" name="page" value="$page"/>
 	  <input type="hidden" name="output" value="json"/>
 	  <input type="hidden" name="mediatype_query"
 	    $for mediatype in enumerate(['all', 'audio']):
