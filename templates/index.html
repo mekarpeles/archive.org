@@ -2,41 +2,40 @@ $def with(p=0, rows=50, page=1)
 
 $var page: $p
 
-    <header>
-      <div class="logo-container">
-	<div class="logo">
-	  <a class="logotxt" href="http://archive.org">
-	    <h1 style="float: left; margin-left: 130px;">Archive</h1>
-	    <h1 style="letter-spacing: 6px; float: left;"
-		class="vertical">Internet</h1>
-	    <img src="static/imgs/logo.png"
-		 style="position: absolute; width: 150px; left: 125px; top: 60px;"/>
-	  </a>
-	</div>
-	<div class="clearfix"></div>
-	<p class="centertext motto">
-	  Universal Access to All Knowledge
-	</p>
-      </div>
-    </header>
-
-    <div id="content">
-      <form method="POST" name="rawform" id="rawform"
-	    action="/"/>
-	    $#action="http://archive.org/searchresults.php?output=json">
-	<div class="searchbar">
-	  <input class="searchinput" type="text" name="q"
-		 placeholder="Search archive.org" />
-	  <input type="hidden" name="rows" value="$rows"/>
-	  <input type="hidden" name="page" value="$page"/>
-	  <input type="hidden" name="output" value="json"/>
-	  <input type="hidden" name="mediatype_query"
-	    $for mediatype in enumerate(['all', 'audio']):
-              $if loop.index - 1 == int(p):
-  	        value="$mediatype[1]"/>
-	</div>
-	<div class="searchactions">
-	  <input class="searchbtn" type="submit" class="btn" value="Search"/>
-	</div>
-      </form>
+<header>
+  <div class="logo-container">
+    <div class="logo">
+      <a class="logotxt" href="http://archive.org">
+        <h1 style="float: left; margin-left: 130px;">Archive</h1>
+        <h1 style="letter-spacing: 6px; float: left;"
+            class="vertical">Internet</h1>
+        <img src="static/imgs/logo.png"
+             style="position: absolute; width: 150px; left: 125px; top: 60px;"/>
+      </a>
     </div>
+    <div class="clearfix"></div>
+    <p class="centertext motto">
+      Universal Access to All Knowledge
+    </p>
+  </div>
+</header>
+
+<div id="content">
+  <form method="POST" name="rawform" id="rawform"
+        action="/"/>
+    <div class="searchbar">
+      <input class="searchinput" type="text" name="q"
+             placeholder="Search archive.org" />
+      <input type="hidden" name="rows" value="$rows"/>
+      <input type="hidden" name="page" value="$page"/>
+      <input type="hidden" name="output" value="json"/>
+      <input type="hidden" name="mediatype_query"
+      $for mediatype in enumerate(['all', 'audio']):
+        $if loop.index - 1 == int(p):
+          value="$mediatype[1]"/>
+    </div>
+    <div class="searchactions">
+      <input class="searchbtn" type="submit" class="btn" value="Search"/>
+    </div>
+  </form>
+</div>
