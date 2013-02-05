@@ -30,7 +30,7 @@ setup(
     license='LICENSE',
     install_requires=[
         'waltz >= 0.1.62',
-        'requests',
+        'requests >= 1.1.0',
         'markdown',
     ],
     description="Search Engine redesign concept for archive.org",
