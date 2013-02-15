@@ -135,9 +135,26 @@ a {
     margin:21px 0;
 }
 
+.logotxt-horizontal {
+    float: left;
+    margin-left: 130px;
+}
+
+.logotxt-vertical {
+    letter-spacing: 6px;
+    float: left;
+}
+
 .logo-container .motto {
     margin-top: 75px;
     color: #999;
+}
+
+.logoimg {
+    position: absolute;
+    width: 150px;
+    left: 125px;
+    top: 60px;
 }
 
 .logo-container:hover {
