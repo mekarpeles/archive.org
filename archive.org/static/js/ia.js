@@ -5,7 +5,16 @@ $(function() {
 	$.get(url, function(data) {
 	    var filez = JSON.stringify(data);
 	    serpy.html(filez);
-	    serpy.css('visibility', 'visible');
+	});
+    });
+
+    $('.serpresult').each(function(index) {
+	var thisresult = $(this);
+	var preview = thisresult.find('.serpid');
+	thisresult.mouseover(function() {
+	    preview.css('visibility', 'visible');
+	}).mouseleave(function() {
+	    preview.css('visibility', 'hidden');
 	});
     });
 });

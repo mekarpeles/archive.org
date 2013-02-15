@@ -137,7 +137,7 @@ a {
 
 .logotxt-horizontal {
     float: left;
-    margin-left: 130px;
+    margin-left: 130px !important;
 }
 
 .logotxt-vertical {
@@ -320,4 +320,15 @@ footer ul li a {
 
 footer ul li a:hover {
     color: #666;
+}
+
+.serpid {
+    width: 50px;
+    position: absolute;
+    overflow: ellipsis;
+    max-height: 100px;
+    margin-left: 750px; 
+    font-size: 6px;
+    display: inline;
+    visibility: hidden;
 }
