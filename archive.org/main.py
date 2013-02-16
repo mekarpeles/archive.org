@@ -3,13 +3,17 @@ from waltz import web, render, track
 from urlparse import urlparse
 import requests
 import markdown
+import json
 
-urls = ('/?', 'Home',
-        '/terms', 'Terms')
+urls = ('/terms/?', 'Terms',
+        '/ajax/?', 'Ajax',
+        '/?', 'Home')
+        
 sessions = {"uid": None,
             "uname": "",
             "logged": False}
 env = {'commify': web.commify,
+       'json': json,
        'join': lambda x, y: y.join(x),
        'trunc': lambda x, l: '%s ...' % x[:l] if len(x) > l else x,
        'markdown': markdown.Markdown(safe_mode=True,
@@ -43,6 +47,15 @@ class Home:
         return render().serp(query=i.q, p=i.p, serp=serp,
                              page=i.page, rows=i.rows,
                              zeroclick=zeroclick)
+
+class Ajax:
+    def GET(self):
+        web.header('Content-Type', 'application/json')
+        i = web.input(id="")
+        if i.id:
+            r = requests.get('http://archive.org/details/%s?output=json' % i.id)
+            return json.dumps(r.json())
+        return ""
 
 class Terms:
     @track

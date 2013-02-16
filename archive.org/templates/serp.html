@@ -1,5 +1,7 @@
 $def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
 
+$var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
+
 <div id="serpsearch">
   <form style="margin-left: 103px; margin-bottom: 14px;" action="/"
 	method="GET">
@@ -33,13 +35,14 @@ $def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
     </div>
   $if serp and 'response' in serp and 'docs' in serp['response']:
     <ul>
-      $for doc in serp['response']['docs']        
-        <li>
-  	  <div class="title">
+      $for doc in serp['response']['docs']:
+        <li class="serpresult">
+   	  <div class="title">
   	    <a href="http://archive.org/$('download' if doc['mediatype'] == 'audio' else 'details')/$doc['identifier']">
   	      $:trunc(markdown(doc['title']), 100)
   	    </a>
   	  </div>
+	  <div class="serpid">$doc['identifier']</div>
 	  $if 'identifier' in doc:
 	    <div style="color: green;">
 	      http://archive.org/details/$doc['identifier']
@@ -52,10 +55,6 @@ $def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
 	    <div class="cat">
 	      categories: $:join(['<a href="http://archive.org/details/%s">%s</a>' % (c, c) for c in doc['collection']], ', '), formats: $join(doc['format'], ', ')
 	    </div>
-	    
-	  $# load via ajax: http://archive.org/details/%s&output=json
-	  $# if 'mediatype' == 'audio':
-	  $#   'runtime', 
   	</li>
     </ul>
   $else:
