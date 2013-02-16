@@ -135,9 +135,26 @@ a {
     margin:21px 0;
 }
 
+.logotxt-horizontal {
+    float: left;
+    margin-left: 130px !important;
+}
+
+.logotxt-vertical {
+    letter-spacing: 6px;
+    float: left;
+}
+
 .logo-container .motto {
     margin-top: 75px;
     color: #999;
+}
+
+.logoimg {
+    position: absolute;
+    width: 150px;
+    left: 125px;
+    top: 60px;
 }
 
 .logo-container:hover {
@@ -303,4 +320,15 @@ footer ul li a {
 
 footer ul li a:hover {
     color: #666;
+}
+
+.serpid {
+    width: 50px;
+    position: absolute;
+    overflow: ellipsis;
+    max-height: 100px;
+    margin-left: 750px; 
+    font-size: 6px;
+    display: inline;
+    visibility: hidden;
 }
