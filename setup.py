@@ -29,7 +29,7 @@ setup(
     scripts=[],
     license='LICENSE',
     install_requires=[
-        'waltz >= 0.1.62',
+        'waltz >= 0.1.68',
         'requests >= 1.1.0',
         'markdown',
     ],
