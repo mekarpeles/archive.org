@@ -1,5 +1,6 @@
 $def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
 
+$var css: /static/css/projects.css
 $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
 
 <div id="serpsearch">
@@ -16,3 +17,20 @@ $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
   </form>
 </div>
 
+<div id="projects">
+  <div class="project-row">
+    <div class="project">
+      <a href="https://github.com/internetarchive/ias3"><h3>ias3</h3></a>
+      <p class="desc">Internet Archive S3-like connector</p>
+    </div>
+    <div class="project">
+      <a href="https://github.com/internetarchive/warc"><h3>autocrop</h3></a>
+      <p class="desc">Image cropper and deskewer</p>
+    </div>
+    <div class="project">
+      <a href="https://github.com/internetarchive/warc"><h3>warc</h3></a>
+      <p class="desc">Python library for reading and writing warc files</p>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
