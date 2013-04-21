@@ -7,6 +7,7 @@ import json
 
 urls = ('/terms/?', 'Terms',
         '/ajax/?', 'Ajax',
+        '/projects/?', 'routes.project.Projects',
         '/?', 'Home')
         
 sessions = {"uid": None,
