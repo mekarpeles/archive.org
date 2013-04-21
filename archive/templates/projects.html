@@ -1,0 +1,36 @@
+$def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
+
+$var css: /static/css/projects.css
+$var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
+
+<div id="serpsearch">
+  <form style="margin-left: 103px; margin-bottom: 14px;" action="/"
+	method="GET">
+    <a href="http://archive.org">
+      <img style="position: relative; top: 9px; margin: 10px 15px 0px 5px;" src="http://web.archive.org/static/images/logo_archive-sm.png"/>
+    </a>
+    <input class="searchinput" style="width: 635px; margin-right: 8px;" type="text" name="q" value=""/>
+    <input type="hidden" name="output" value="json"/>
+    
+<input class="searchbtn" type="submit" class="btn" value="Search"/>
+    <a href="http://archive.org/advancedsearch.php" style="margin-top: 2px; margin-left: 6px; color: #555; font-size: 13px;">Advanced Search</a>
+  </form>
+</div>
+
+<div id="projects">
+  <div class="project-row">
+    <div class="project">
+      <a href="https://github.com/internetarchive/ias3"><h3>ias3</h3></a>
+      <p class="desc">Internet Archive S3-like connector</p>
+    </div>
+    <div class="project">
+      <a href="https://github.com/internetarchive/warc"><h3>autocrop</h3></a>
+      <p class="desc">Image cropper and deskewer</p>
+    </div>
+    <div class="project">
+      <a href="https://github.com/internetarchive/warc"><h3>warc</h3></a>
+      <p class="desc">Python library for reading and writing warc files</p>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
