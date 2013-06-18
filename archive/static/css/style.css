@@ -75,6 +75,12 @@ a {
     color: blue;
 }
 
+.menuright-item {
+    position: relative;
+    top: -4px;
+    margin-right: 15px;
+}
+
 .menu {
     top: 0px;
     z-index: 999;
