@@ -18,19 +18,19 @@ $def with (content)
   <body>
     <div class="menu">
       <ul style="float: left;">
-	$for link in enumerate(['web', 'audio']):	
+	$for link in enumerate(['web', 'images', 'audio']):
 	  $if loop.index - 1 == int(content.get('page', 0)):
-	    <li><a href="/?p=$link[0]"><b>$link[1]</b></a></li>
+	    <li><a href="/?p=$link[0]&cat=$link[1]"><b>$link[1]</b></a></li>
 	  $else:
-	    <li><a href="/?p=$link[0]">$link[1]</a></li>
+	    <li><a href="/?p=$link[0]&cat=$link[1]">$link[1]</a></li>
 	<li><a href="http://openlibrary.org">books</a></li>
 	<li><a href="http://hackerlist.net:1337">research</a></li>
       </ul>
       <span class="menuright">
-	<a style="position: relative; top: -4px; margin-right: 15px;" href="http://archive.org/create">Upload</a>
-	<a style="position: relative; top: -4px; margin-right: 15px;" href="http://archive.org/iathreads/forums.php">Forums</a>
-	<a style="position: relative; top: -4px; margin-right: 15px;" href="http://archive.org/help/json.php">API</a>
-	<a style="position: relative; top: -4px; margin-right: 20px;" href="http://archive.org/services/collection-rss.php">RSS</a>
+	<a class="menuright-item" href="http://archive.org/create">Upload</a>
+	<a class="menuright-item" href="http://archive.org/iathreads/forums.php">Forums</a>
+	<a class="menuright-item" href="http://archive.org/help/json.php">API</a>
+	<a class="menuright-item" href="http://archive.org/services/collection-rss.php">RSS</a>
 	<img height="20" src="https://secure.gravatar.com/avatar/7ca82283af0b65b163dde4f5f5e3fb41?s=160&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" class="rounded" width="20">
 	<a style="position: relative; top: -5px; color: #333;" href="#">mek (20)</a>
       </span>
