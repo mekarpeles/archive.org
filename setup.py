@@ -29,8 +29,9 @@ setup(
     scripts=[],
     license='LICENSE',
     install_requires=[
-        'waltz >= 0.1.68',
-        'requests >= 1.1.0',
+        'waltz >= 0.1.7',
+        'requests >= 1.2.3',
+        'beautifulsoup',
         'markdown',
     ],
     description="Search Engine redesign concept for archive.org",
