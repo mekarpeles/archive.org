@@ -1,4 +1,4 @@
-$def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=None)
+$def with (query="", p=1, serp=[], page=1, rows=50, zeroclick=[])
 
 $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
 
@@ -29,9 +29,9 @@ $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
       </p>
   </div>
 
-  $if zeroclick:
+  $for zc in zeroclick:
     <div class="zeroclick">
-      <p>$:zeroclick</p>
+      <img src="$zc"/>
     </div>
   $if serp and 'response' in serp and 'docs' in serp['response']:
     <ul>

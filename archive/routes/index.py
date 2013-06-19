@@ -7,29 +7,27 @@
     Renders assets for the homepage
 """
 
-from waltz import web, track, render
 import requests
+from waltz import web, track, render
+from api.v1.wayback import timeline
+from utils import findurls
 
 class Home:
-    @track
     def GET(self):
-        i = web.input(p='0', q='', rows=50, page=1)
+        i = web.input(p='0', cat='', q='', rows=50, page=1)
         if i.q:
             return self.POST()
         return render().index(p=int(i.p))
 
     def POST(self):
-        i = web.input(q="", p='0', rows=50, page=1)
+        i = web.input(q='', cat='', p='0', rows=50, page=1)
         serp = "<p>No Results Found</p>"
-        zeroclick=""
-        if i.p == '0' and 'http://' in i.q:
-            zeroclick = '<img style="height: 50px;" ' \
-                'src="http://archive.org/images/wayback.gif"/>' \
-                '<span style="position: relative; top: -14px; ' \
-                'margin-left: 10px;"><a style="margin-left: 10px;" ' \
-                'href="http://web.archive.org/web/*/%s">' \
-                'View older versions o1f %s</a><span>' % (i.q, i.q)
-            raise web.seeother('http://web.archive.org/web/*/%s' % i.q)
+        zeroclick = []
+        if i.p == '0':
+            if i.q:
+                urls = findurls(i.q)
+                if urls:
+                    zeroclick += [timeline(url) for url in urls]
 
         # Fallback to seach all mediatypes
         if i.q:
