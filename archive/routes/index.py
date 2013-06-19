@@ -27,7 +27,7 @@ class Home:
             if i.q:
                 urls = findurls(i.q)
                 if urls:
-                    zeroclick += [timeline(url) for url in urls]
+                    zeroclick += [(timeline(url), url) for url in urls]
 
         # Fallback to seach all mediatypes
         if i.q:

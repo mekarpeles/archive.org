@@ -29,10 +29,25 @@ $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
       </p>
   </div>
 
-  $for zc in zeroclick:
-    <div class="zeroclick">
-      <img src="$zc"/>
-    </div>
+  $for zc, url in zeroclick:
+    <div class="zeroclick" onmouseout="showTrackers('none'); setActiveYear(startYear);">
+    <img src="http://archive.org/images/wayback.gif" class="wayback-logo"/>
+        <a class="foo" href="http://web.archive.org/web/20050501000000*/$(url)" id="wm-graph-anchor">
+          <div id="wm-ipp-sparkline" class="bar" title="Explore captures for this URL">
+	    <img id="sparklineImgId" style="position:absolute;top:0;left:0;" onmouseover="showTrackers('inline');" onmousemove="trackMouseMove(event,this)" alt="sparklines" width="882" height="75" border="0" src="$(zc)">
+	    <img id="wbMouseTrackYearImg" style="display: none; position: absolute; z-index: 9010; left: 833px;" width="49" height="75" border="0" src="http://web.archive.org/static/images/toolbar/yellow-pixel.png">
+	    <img id="wbMouseTrackMonthImg" style="display:none; position:absolute; z-index:9011; " width="4" height="75" border="0" src="http://web.archive.org/static/images/toolbar/transp-red-pixel.png">
+          </div>
+        </a>
+	$for i in range(18):
+	  <div class="wbChartThisContainer">
+	    <a style="text-decoration: none;" href="http://web.archive.org/web/$(1996 + i)0101000000*/$(url)">
+	      <div class="chartsec"></div>
+	      <div id="highlight-1" onmouseover="showTrackers('inline'); setActiveYear(1)" class="inactiveHighlight">$(1996+i)</div>
+	    </a>
+	  </div>
+      </div>
+ 
   $if serp and 'response' in serp and 'docs' in serp['response']:
     <ul>
       $for doc in serp['response']['docs']:
