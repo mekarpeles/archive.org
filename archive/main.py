@@ -7,27 +7,27 @@
     Main application for archive.org
 """
 
-import waltz
-from waltz import web
-import requests
-import markdown
 import json
+import requests
+import waltz
+import utils
+from subapps.api.v1 import rest as api
 
-urls = ('/terms/?', 'routes.static.Terms',
-        '/ajax/?', 'routes.rest.Ajax',
-        '/projects/?', 'routes.project.Projects',
+urls = ('/api/v1', api.subapp,
+        '/terms/?', 'routes.static.Terms',
+        '/developers/?', 'routes.project.Projects',
         '/?', 'routes.index.Home')
         
 sessions = {"uid": None,
             "uname": "",
             "logged": False}
 
-env = {'commify': web.commify,
+env = {'commify': waltz.web.commify,
        'json': json,
-       'join': lambda x, y: y.join(x),
-       'trunc': lambda x, l: '%s ...' % x[:l] if len(x) > l else x,
-       'markdown': markdown.Markdown(safe_mode=True,
-                                     html_replacement_text='').convert}
+       'join': utils.join,
+       'trunc': utils.truncate,
+       'markdown': utils.markdown
+       }
 
 app = waltz.setup.dancefloor(urls, globals(), sessions=sessions,
                              env=env, autoreload=False)
