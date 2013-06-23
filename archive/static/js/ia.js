@@ -1,7 +1,7 @@
 $(function() {
     $('.serpid').each(function(index) {
 	var serpy = $(this)
-	url = '/ajax?id=' + serpy.html()
+	url = '/api/v1/resource/' + serpy.html() + '/meta'
 	$.get(url, function(data) {
 	    var filez = JSON.stringify(data);
 	    serpy.html(filez);

@@ -44,6 +44,7 @@ b {
     font-weight:bold;
 }
 h1 {
+    font-size: 30px;
     font-weight: normal;
     font-family: 'PT Serif', serif;
 }
@@ -63,7 +64,7 @@ a {
 .menuright {
     float: right;
     padding-right: 25px;
-    margin-top: 12px;
+    margin-top: 18px;
     margin-left: 25px;
 }
 
@@ -433,3 +434,18 @@ footer ul li a:hover {
     font-size: 14px;
     text-align: center;
 }
+
+h2 {
+    font-size: 24px;
+    padding: 10px 0px;
+}
+
+.toc {
+    border: 1px solid #ddd;
+    background-color: #eee;
+    padding: 10px;
+    padding-left: 30px;
+    margin-left: 20px;
+    width: 300px;
+}
+
