@@ -26,7 +26,6 @@ sessions = {"uid": None,
 
 env = {'commify': waltz.web.commify,
        'json': json,
-       'join': utils.join,
        'trunc': utils.truncate,
        'markdown': utils.markdown
        }
