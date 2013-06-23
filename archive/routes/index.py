@@ -39,3 +39,7 @@ class Home:
         return render().serp(query=i.q, p=i.p, serp=serp,
                              page=i.page, rows=i.rows,
                              zeroclick=zeroclick)
+
+class Api:
+    def GET(self):
+        raise web.seeother('/api/v1/')

@@ -14,12 +14,14 @@ import utils
 from subapps.api.v1 import rest as api
 
 urls = ('/api/v1', api.subapp,
+        '/api/?', 'routes.index.Api',
         '/terms/?', 'routes.static.Terms',
         '/developers/?', 'routes.project.Projects',
         '/?', 'routes.index.Home')
         
 sessions = {"uid": None,
             "uname": "",
+            "karma": 0,
             "logged": False}
 
 env = {'commify': waltz.web.commify,
