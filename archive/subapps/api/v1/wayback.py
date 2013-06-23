@@ -11,7 +11,10 @@
 """
 
 import json
+import requests
 import waltz
+from utils import validurl
+from api.v1 import wayback
 
 urls = ("/(.+)/?", "Wayback",
         "/?", "Info")
@@ -22,7 +25,8 @@ class Wayback:
     def GET(self, url=""):
         if validurl(url):
             src = wayback.timeline(url)
-            return src # XXX should return wget of src!
+            waltz.web.header('Content-Type', 'image/png')
+            return requests.get(src).content
         raise InvalidUrlError('%s is an invalid url' % url)
 
 class Info:

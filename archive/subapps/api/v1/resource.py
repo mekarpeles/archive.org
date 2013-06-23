@@ -28,10 +28,21 @@ def API(web):
 
 class Metadata:
     @API(waltz.web)
-    def GET(self, id_):
-        if id_:
+    def GET(self, id_=None):
+        if id_ is not None:
             r = requests.get('http://archive.org/details/%s?output=json' % id_)
             return json.dumps(r.json())
         return ""
+
+class Resource:
+    @API(waltz.web)
+    def GET(self, id_=None):
+        if id_ is not None:
+            pass
+        raise NotImplementedError
+
+class Info:
+    def GET(self):
+        return "Internet Archive Resource Details API"
 
 subapp = waltz.web.application(urls, globals())
