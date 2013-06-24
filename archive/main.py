@@ -11,10 +11,9 @@ import json
 import requests
 import waltz
 import utils
-from subapps.api.v1 import rest as api
+from subapps.api import api
 
-urls = ('/api/v1', api.subapp,
-        '/api/?', 'routes.index.Api',
+urls = ('/api', api.subapp,
         '/terms/?', 'routes.static.Terms',
         '/developers/?', 'routes.project.Projects',
         '/?', 'routes.index.Home')
