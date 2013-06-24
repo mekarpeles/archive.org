@@ -68,7 +68,7 @@ $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
   	    </div>
 	  $if 'collection' in doc and 'format' in doc:
 	    <div class="cat">
-	      categories: $:join(['<a href="http://archive.org/details/%s">%s</a>' % (c, c) for c in doc['collection']], ', '), formats: $join(doc['format'], ', ')
+	      categories: $:(', '.join(['<a href="http://archive.org/details/%s">%s</a>' % (c, c) for c in doc['collection']]), formats: $(', '.join(doc['format']))
 	    </div>
   	</li>
     </ul>
