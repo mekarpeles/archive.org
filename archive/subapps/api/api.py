@@ -17,7 +17,12 @@ from subapps.api.v2 import delegator as api_v2
 urls = ("/v([0-9]+)/?$", "Docs",
         "/v1", api_v1.subapp,
         "/v2", api_v2.subapp,
+        "/projects", "Projects",
         "/?", "Redir")
+
+class Projects:
+    def GET(self):
+        return waltz.render().api.projects()
 
 class Docs:
     def GET(self, v="1"):
@@ -28,7 +33,7 @@ class Docs:
 
 class Redir:
     def GET(self):
-        raise waltz.web.seeother('/v1/')
+        return waltz.render().api.index()
 
 
 subapp = waltz.web.application(urls, globals())
