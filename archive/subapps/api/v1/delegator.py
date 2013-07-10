@@ -19,6 +19,6 @@ urls = ("/wayback", wayback.subapp,
 
 class Redirect:
     def GET(self):
-        raise web.seeother('/api/v1/')
+        raise waltz.web.seeother('/api/v1/')
 
 subapp = waltz.web.application(urls, globals())

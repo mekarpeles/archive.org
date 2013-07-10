@@ -17,6 +17,6 @@ urls = ("/.+", "Redirect")
 
 class Redirect:
     def GET(self):
-        raise web.seeother('/api/v2/')
+        raise waltz.web.seeother('/api/v2/')
 
 subapp = waltz.web.application(urls, globals())
