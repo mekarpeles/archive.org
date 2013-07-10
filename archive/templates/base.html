@@ -16,51 +16,10 @@ $def with (content)
     <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|PT+Serif|Quicksand:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div class="menu">      
-      <ul style="float: left;">
-	$for link in enumerate(['web', 'images', 'audio']):
-	  $if loop.index - 1 == int(content.get('page', 0)):
-	    <li><a href="$(ctx.homepath)$(ctx.path)?p=$link[0]&cat=$link[1]"><b>$link[1]</b></a></li>
-	  $else:
-	    <li><a href="$(ctx.homepath)$(ctx.path)?p=$link[0]&cat=$link[1]">$link[1]</a></li>
-	<li><a href="http://openlibrary.org">books</a></li>
-	<li><a href="http://hackerlist.net:1337">research</a></li>
-      </ul>
-      <span class="menuright">
-	<a class="menuright-item" href="http://archive.org/create">Upload</a>
-	<a class="menuright-item" href="http://archive.org/iathreads/forums.php">Forums</a>
-	<a class="menuright-item" href="/api">API</a>
-	<a class="menuright-item" href="http://archive.org/services/collection-rss.php">RSS</a>
-	$if session['logged']:
-	  $if session['avatar']:
-	    <img height="20" src="$(session['avatar'])" class="rounded" width="20">
-	  <a style="position: relative; top: -5px; color: #333;" href="#">$(session['uname']) $('(%s)' % session['karma'] if 'karma' in session else '')</a>
-	$else:
-	  <a style="position: relative; top: -5px; color: #333; font-size: 15px;" href="/login">login</a>
-      </span>
-      <div class="clearfix"></div>
-    </div>
+    $:render.core.navigation(content)
     $:content
-    <footer>
-      <ul>
-	<li><a href="/terms">Terms &amp; Privacy</a></li>
-	<li><a href="http://archive.org/about/faqs.php">FAQs</a></li>
-	<li><a href="http://archive.org/about/jobs.php">Jobs</a></li>
-	<li><a href="http://archive.org/about/credits.php">Supporters</a></li>
-      </ul>
-    </footer>
-    
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-36005542-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    $:render.core.footer()
+    $:render.core.analytics()
   </body>
 </html>
 
