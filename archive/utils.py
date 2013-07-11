@@ -25,6 +25,9 @@ def validurl(s):
 def truncate(s, length):
     return '%s ...' % s[:length] if len(s) > length else s
 
+def join(lst, delim):
+    return delim.join(lst)
+
 def markdown(html, safe_mode=True, replace_with=''):
     return md.Markdown(safe_mode=safe_mode,
                        html_replacement_text=replace_with).convert(html)

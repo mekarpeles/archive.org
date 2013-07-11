@@ -26,7 +26,8 @@ sessions = {"uid": None,
 env = {'commify': waltz.web.commify,
        'json': json,
        'trunc': utils.truncate,
-       'markdown': utils.markdown
+       'markdown': utils.markdown,
+       'join': utils.join
        }
 
 app = waltz.setup.dancefloor(urls, globals(), sessions=sessions,
