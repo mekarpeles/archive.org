@@ -22,8 +22,9 @@ setup(
     author='mek',
     author_email='michael.karpeles@gmail.com',
     packages=[
-        'routes',
-        'subapps'
+        'archive/subapps',
+        'archive/api',
+        'archive/routes'
         ],
     platforms='any',
     scripts=[],
