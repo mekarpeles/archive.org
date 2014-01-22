@@ -25,7 +25,6 @@ $var page: $p
              placeholder="Search archive.org" />
       <input type="hidden" name="rows" value="$rows"/>
       <input type="hidden" name="page" value="$page"/>
-      <input type="hidden" name="output" value="json"/>
       <input type="hidden" name="mediatype_query"
       $for mediatype in enumerate(['all', 'audio']):
         $if loop.index - 1 == int(p):

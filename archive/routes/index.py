@@ -34,7 +34,8 @@ class Home:
             r = requests.post('http://archive.org/advancedsearch.php',
                               data={'q': i.q.replace('http://', ''),
                                     'rows': i.rows,
-                                    'page': i.page, 'output': 'json'})
+                                    'page': i.page,
+                                    'output': 'json'})
             serp = r.json()
         return render().serp(query=i.q, p=i.p, serp=serp,
                              page=i.page, rows=i.rows,
