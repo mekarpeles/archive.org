@@ -11,7 +11,6 @@ $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
     <input class="searchinput" style="width: 635px; margin-right: 8px;" type="text" name="q" value="$query"/>
     <input type="hidden" name="rows" value="$rows"/>
     <input type="hidden" name="page" value="$page"/>
-    <input type="hidden" name="output" value="json"/>
     <input type="hidden" name="mediatype_query"
       $for mediatype in enumerate(['all', 'audio']):
         $if loop.index - 1 == int(p):
@@ -43,7 +42,7 @@ $var js: http://code.jquery.com/jquery-latest.min.js /static/js/ia.js
         <div class="wbChartThisContainer">
 	  <a style="text-decoration: none;" href="http://web.archive.org/web/$(1996 + i)0101000000*/$(url)">
 	    <div class="chartsec"></div>
-	    <div id="highlight-1" onmouseover="showTrackers('inline'); setActiveYear(1)" class="inactiveHighlight">$(1996+i)</div>
+	    <div id="highlight-1" onmouseover="showTrackers('inline'); setActiveYear(1)" class="inactiveHighlight">$(1997+i)</div>
 	  </a>
 	  </div>
     </div>
