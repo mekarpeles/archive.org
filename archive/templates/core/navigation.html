@@ -2,14 +2,20 @@ $def with(content)
 
     <div class="menu">      
       <ul style="float: left;">
-	$for link in enumerate(['web', 'images', 'audio']):
+	$for link in enumerate(['web', 'images']):
 	  $if loop.index - 1 == int(content.get('page', 0)):
 	    <li><a href="$(ctx.homepath)$(ctx.path)?p=$link[0]&cat=$link[1]"><b>$link[1]</b></a></li>
 	  $else:
 	    <li><a href="$(ctx.homepath)$(ctx.path)?p=$link[0]&cat=$link[1]">$link[1]</a></li>
+      <li><a href="#">audio</a>
+      <ul class="dd">
+        <li><a href="#">music</a></li>
+        <li><a href="#">audio books</a></li>
+      </ul>
 	<li><a href="http://openlibrary.org">books</a></li>
 	<li><a href="http://hackerlist.net:1337">research</a></li>
       </ul>
+      </li>
       <span class="menuright">
 	<a class="menuright-item" href="http://archive.org/create">Upload</a>
 	<a class="menuright-item" href="http://archive.org/iathreads/forums.php">Forums</a>
