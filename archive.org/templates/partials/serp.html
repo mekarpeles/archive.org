@@ -1,0 +1,77 @@
+<div id="serpsearch">
+  <form style="margin-left: 103px; margin-bottom: 14px;" action="/"
+	      method="POST">
+    <a href="http://archive.org">
+      <img style="position: relative; top: 9px; margin: 10px 15px 0px 5px;" src="http://web.archive.org/static/images/logo_archive-sm.png"/>
+    </a>
+    <input class="searchinput" style="width: 635px; margin-right: 8px;" type="text" name="q" value="{{query}}"/>
+    <input type="hidden" name="mediatype_query" value="web"/>
+    <input class="searchbtn" type="submit" class="btn" value="Search"/>
+  </form>
+</div>
+
+<div id="serp">
+  <div class="serpstats">
+    <p>
+      {{ results['count'] }} results in {{ results['time'] }} seconds
+    </p>
+  </div>
+
+<!--
+  $for zc, url in zeroclick:
+    <div class="zeroclick" onmouseout="showTrackers('none'); setActiveYear(startYear);">
+      <img src="http://archive.org/images/wayback.gif" class="wayback-logo"/>
+      <a class="foo" href="http://web.archive.org/web/20050501000000*/$(url)" id="wm-graph-anchor">
+        <div id="wm-ipp-sparkline" class="bar" title="Explore captures for this URL">
+	  <img id="sparklineImgId" style="position:absolute;top:0;left:0;" onmouseover="showTrackers('inline');" onmousemove="trackMouseMove(event,this)" alt="sparklines" width="882" height="75" border="0" src="$(zc)">
+	  <img id="wbMouseTrackYearImg" style="display: none; position: absolute; z-index: 9010; left: 833px;" width="49" height="75" border="0" src="http://web.archive.org/static/images/toolbar/yellow-pixel.png">
+	  <img id="wbMouseTrackMonthImg" style="display:none; position:absolute; z-index:9011; " width="4" height="75" border="0" src="http://web.archive.org/static/images/toolbar/transp-red-pixel.png">
+        </div>
+      </a>
+      $for i in range(18):
+        <div class="wbChartThisContainer">
+	  <a style="text-decoration: none;" href="http://web.archive.org/web/$(1996 + i)0101000000*/$(url)">
+	    <div class="chartsec"></div>
+	    <div id="highlight-1" onmouseover="showTrackers('inline'); setActiveYear(1)" class="inactiveHighlight">$(1996+i)</div>
+	  </a>
+	  </div>
+    </div>
+    -->
+
+<ul>
+  {% for doc in results["items"] %}
+        <li>
+          <div class="title">
+            <a href="http://archive.org/{{ 'download' if doc['mediatype'] == 'audio' else 'details' }}/{{ doc['identifier']}}">
+              {{ doc['title'] |safe}}
+            </a>
+          </div>
+          {% if doc.get('identifier') %}
+            <div class="serpid">{{ doc['identifier'] }}</div>
+          {% endif %}
+
+            <div style="color: green;">
+              http://archive.org/details/{{ doc['identifier'] }}
+            </div>
+
+          {% if doc.get('identifier') %}
+          <div class="desc">
+            {{ utils['trunc'](utils['markdown'](doc['description']), 100) | safe}}
+            </div>
+          {% endif %}
+          
+          <div class="cat">
+            categories:
+            {% for c in doc['collection'] %}
+            
+              {{ utils['join'](['<a href="http://archive.org/details/%s">%s</a>' % (c, c)], ", ") |safe}}
+            {% endfor %},
+            formats: {{ utils['join'](doc['format'], ', ') }}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+</div>
+<div id="rightbar">
+</div>
+<div class="clearfix"></div>

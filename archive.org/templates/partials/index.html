@@ -1,0 +1,31 @@
+<header>
+  <div class="logo-container">
+    <div class="logo">
+      <a class="logotxt" href="http://archive.org">
+        <h1 class="logotxt-horizontal">Archive</h1>
+        <h1 class="logotxt-vertical vertical">Internet</h1>
+        <img src="static/images/logo.png" class="logoimg" />        
+      </a>
+    </div>
+    <div class="clearfix"></div>
+    <p class="centertext motto">
+      Universal Access to All <strong style="color: purple;">{{ service.capitalize() if service else 'Web Pages' }}</strong>
+    </p>
+  </div>
+</header>
+
+<div id="content">
+  <form method="POST" action="/{{ service }}">
+    <div class="searchbar">
+      <input class="searchinput" type="text" name="q"
+             placeholder="See the history of billions of websites" />
+      <input type="hidden" name="rows" value="50"/>
+      <input type="hidden" name="page" value="0"/>
+      <input type="hidden" name="mediatype_query" value='all'/>
+    </div>
+    <div class="searchactions">
+      <input class="searchbtn" type="submit" class="btn" value="Search"/>
+    </div>
+  </form>
+</div>
+
